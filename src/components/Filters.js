@@ -24,14 +24,14 @@ const Filters = () => {
 
   return (
     <div
-      className="w-full h-12 border-2 border-gray-100 rounded-lg
-    flex items-center justify-between relative
-    "
+      className="w-full py-3 border-2 border-gray-100 rounded-lg
+    flex flex-col items-start md:items-center md:justify-between relative
+    px-2 gap-4"
     >
       <Search />
-      <div className="flex mr-7">
+      <div className="flex flex-col items-start gap-4">
         <form
-          className="relative flex items-center font-nunito
+          className=" relative flex items-center font-nunito
           mr-12
           "
           onSubmit={handleCurrencySubmit}

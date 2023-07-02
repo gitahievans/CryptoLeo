@@ -26,10 +26,9 @@ const selectCoin = (coin) => {
 };
 
 return (
-    <>
+    <div className="">
     <form
-        className="w-96 relative flex items-center
-    ml-7 font-nunito
+        className="w-full bg-white relative flex items-center md:ml-7 font-nunito
     "
         onSubmit={handleSubmit}
     >
@@ -90,7 +89,7 @@ backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-20
         )}
         </ul>
     ) : null}
-    </>
+    </div>
 );
 };
 
