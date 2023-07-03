@@ -5,7 +5,7 @@ import TableComponent from "../components/TableComponent";
 
 const Crypto = () => {
   return (
-    <section className="w-[80%] h-full flex flex-col mt-16 mb-24 relative">
+    <section className="w-11/12 sm:w-[80%] h-full flex flex-col mt-16 mb-10 sm:mb-24 relative">
       <Filters />
       <TableComponent />
       <Outlet />

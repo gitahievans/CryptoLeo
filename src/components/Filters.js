@@ -25,15 +25,20 @@ const Filters = () => {
   return (
     <div className="w-full border-2 border-gray-100 rounded-lg py-2 px-2 flex items-start md:flex-row md:items-center md:justify-between flex-col gap-4 md:flex-wrap">
       <Search />
-      <div className="flex flex-col gap-4 md:flex-row md:justify-between">
-        <form className="flex items-center gap-2" onSubmit={handleCurrencySubmit}>
-          <label htmlFor="currency" className="font-bold">currency: </label>
+      <div className="flex flex-col gap-4 md:flex-row md:justify-between w-full sm:w-auto">
+        <form
+          className="flex items-center gap-3 sm:gap-2 w-full sm:w-auto justify-between"
+          onSubmit={handleCurrencySubmit}
+        >
+          <label htmlFor="currency" className="font-bold">
+            currency:{" "}
+          </label>
           <input
             type="text"
             name="currency"
             ref={currencyRef}
             placeholder="usd"
-            className="w-1/2 rounded bg-gray-200 placeholder:text-gray-100 required border border-hidden focus:border-cyan leading-4 pl-2 py-1"
+            className="w-full sm:w-1/2 rounded bg-gray-200 placeholder:text-gray-100 required border border-hidden focus:border-cyan leading-4 pl-2 py-1"
           />
           <button type="submit" className="cursor-pointer">
             <img src={submitIcon} alt="submit" className=" h-auto" />
@@ -41,8 +46,12 @@ const Filters = () => {
         </form>
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-bold">sort by: </span>
-          <div className="relative">
-            <select name="sortby" onClick={handleSort} className="rounded bg-gray-200 text-base leading-4 capitalize focus:outline-0 py-1 w-40 md:max-w-72">
+          <div className="relative bg-gray-200">
+            <select
+              name="sortby"
+              onClick={handleSort}
+              className="rounded bg-gray-200 text-base leading-4 capitalize focus:outline-0 py-1 w-40 md:max-w-72 px-3"
+            >
               <option value="market_cap_desc">market cap desc</option>
               <option value="market_cap_asc">market cap asc</option>
               <option value="volume_desc">volume desc</option>
@@ -58,7 +67,6 @@ const Filters = () => {
               className="absolute z-10 right-0 top-2 h-4 pointer-events-none"
             />
           </div>
-
         </div>
         <button
           className="w-[2rem]  hover:scale-110 transition-all transition-ease relative"
@@ -83,11 +91,7 @@ const Filters = () => {
         </button>
       </div>
     </div>
-  )
+  );
 };
 
 export default Filters;
-
-
-
-
