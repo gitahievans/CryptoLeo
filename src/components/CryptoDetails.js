@@ -56,7 +56,7 @@ const CryptoDetails = () => {
       onClick={close}
     >
       <div
-        className="w-11/12 sm:w-[65%] h-[75%] bg-gray-300 sm:bg-opacity-75 rounded-lg text-white relative"
+        className="w-11/12 sm:w-[65%] h-[90%] sm:h-[75%] bg-gray-300 sm:bg-opacity-75 rounded-lg text-white relative z-50 py-3"
         onClick={(e) => e.stopPropagation()}
       >
         <FontAwesomeIcon
@@ -331,7 +331,7 @@ const CryptoDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-full sm:w-[55%] h-full sm:pl-3 pl-0 mt-3 sm:mt-0">
+            <div className="flex flex-col w-full sm:w-[55%] h-full sm:pl-3 pl-0 mt-10 sm:mt-0">
               <Chart id={data.id} />
               <div className="flex flex-col mt-4">
                 <h3 className="text-white py-1">

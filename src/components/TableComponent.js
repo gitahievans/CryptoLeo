@@ -70,8 +70,8 @@ const TableComponent = () => {
                 <th className="py-1">asset</th>
                 <th className="py-1">name</th>
                 <th className="py-1">price</th>
-                <th className="py-1">total volume</th>
-                <th className="py-1">market cap change</th>
+                <th className="py-1 hidden sm:table-cell">total volume</th>
+                <th className="py-1 hidden sm:table-cell">market cap change</th>
                 <th className="py-1 lg:table-cell hidden">1H</th>
                 <th className="py-1 lg:table-cell hidden">24H</th>
                 <th className="py-1 lg:table-cell hidden">7D</th>
@@ -116,8 +116,10 @@ const TableComponent = () => {
                         currency: currency,
                       }).format(data.current_price)}
                     </td>
-                    <td className="py-4">{data.total_volume}</td>
-                    <td className="py-4">
+                    <td className="py-4 hidden sm:table-cell">
+                      {data.total_volume}
+                    </td>
+                    <td className="py-4 hidden sm:table-cell">
                       {data.market_cap_change_percentage_24h}%
                     </td>
                     <td
