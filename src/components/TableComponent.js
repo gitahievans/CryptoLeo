@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { CryptoContext } from "./../context/CryptoContext";
 import Pagination from "./Pagination";
 import { StorageContext } from "./../context/StorageContext";
+import useScreenSize from "../hooks/useScreenSize";
+import { Credits } from "./Credits";
 
 const SaveBtn = ({ data }) => {
   const { saveCoin, allCoins, removeCoin } = useContext(StorageContext);
@@ -51,7 +53,8 @@ const SaveBtn = ({ data }) => {
 };
 
 const TableComponent = () => {
-  let { cryptoData, currency,error } = useContext(CryptoContext);
+  let { cryptoData, currency, error } = useContext(CryptoContext);
+  const screenSize = useScreenSize();
 
   return (
     <>
@@ -91,13 +94,19 @@ const TableComponent = () => {
                         alt={data.name}
                       />
                       <span>
-                        <Link to={`/${data.id}`} className="cursor-pointer">
+                        <Link
+                          to={`/${data.id}`}
+                          className="cursor-pointer hover:text-cyan transition-colors"
+                        >
                           {data.symbol}
                         </Link>
                       </span>
                     </td>
                     <td className="py-4">
-                      <Link to={`/${data.id}`} className="cursor-pointer">
+                      <Link
+                        to={`/${data.id}`}
+                        className="cursor-pointer hover:text-cyan transition-colors"
+                      >
                         {data.name}
                       </Link>
                     </td>
@@ -149,7 +158,7 @@ const TableComponent = () => {
               })}
             </tbody>
           </table>
-        ) : (!error.data && !error.search) ? (
+        ) : !error.data && !error.search ? (
           <div className="w-full min-h-[50vh] flex justify-center items-center">
             <div
               className="w-8 h-8 border-4 border-solid border-cyan rounded-full border-b-gray-200 animate-spin"
@@ -164,16 +173,16 @@ const TableComponent = () => {
               : error.search
               ? error.search
               : "Something unexpected happened!"}
-              {/* Here we have use multi chain conditions using ternary operator/ this is not
+            {/* Here we have use multi chain conditions using ternary operator/ this is not
               covered in the video but for the example and some improvements */}
           </h1>
         ) : null}
       </div>
-    <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
-      <span>Data provided by {" "}<a className='text-cyan' href="http://www.coingecko.com" rel="noreferrer" target="_blank">CoinGecko</a></span>
-      <span>Site made by <a className='text-cyan' href="https://devrojas.vercel.app" rel="noreferrer" target="_blank">DevRojas</a></span>
-      <Pagination />
-    </div>
+      <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
+        {screenSize !== "sm" && <Credits />}
+        <Pagination />
+      </div>
+      {screenSize === "sm" && <Credits />}
     </>
   );
 };

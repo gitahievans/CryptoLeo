@@ -28,7 +28,7 @@ const SearchInput = ({ handleSearch }) => {
   return (
     <>
       <form
-        className="md:w-80 relative font-nunito"
+        className="w-full md:w-80 relative font-nunito"
         onSubmit={handleSubmit}
       >
         <input
@@ -40,7 +40,10 @@ const SearchInput = ({ handleSearch }) => {
         placeholder:text-gray-100 pl-2 required outline-0 border border-transparent w-full py-1 focus:border-cyan"
           placeholder="search here..."
         />
-        <button type="submit" className="absolute z-10 top-[15%] right-2 cursor-pointer">
+        <button
+          type="submit"
+          className="absolute z-10 top-[15%] right-2 cursor-pointer"
+        >
           <img src={searchIcon} className="h-auto" alt="search" />
         </button>
       </form>
@@ -98,7 +101,7 @@ const Search = () => {
   }, 2000);
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <SearchInput handleSearch={debounceFunc} />
     </div>
   );
